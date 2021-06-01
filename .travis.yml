@@ -1,24 +1,30 @@
-# Linguagem :Utilizada para Desenvolver a Aplicação
-language: python
-os: Linux
-# Versão que a aplicação suporta.
-dist: xenial
-python:
-  - "3.7.9"
-
-# Instalação de Módulos que são necessários para a Aplicação.
-install:
-  - pip install flask
-
-# Defini o script de Teste que deve rodar toda vez que o código for alterado.
-script:
-  - python -m unittest -v test || travis_terminate 1;
-  
-# Definir o Deploy no Heroku
-deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  edge: true 
-  app: devopslab-gilmarvagner
-  on:
-      branch: main
+{
+  "language": "python",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "python": [
+    "3.7.9"
+  ],
+  "install": [
+    "pip install flask"
+  ],
+  "script": [
+    "python -m unittest -v test || travis_terminate 1;"
+  ],
+  "deploy": [
+    {
+      "provider": "heroku",
+      "strategy": "api",
+      "api_key": "$HEROKU_API_KEY",
+      "edge": true,
+      "app": "devopslab-gilmarvagner",
+      "on": {
+        "branch": [
+          "main"
+        ]
+      }
+    }
+  ]
+}
