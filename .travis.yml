@@ -40,3 +40,17 @@ jobs:
     - stage: STG TEST
       script:
         - curl https://devopslab-gilmarvagner.herokuapp.com/ | grep Hello || travis_terminate 1;
+ - stage: PROD Deploy
+      script: skip
+      # Definir o Deploy no Google Cloud
+      deploy:
+        provider: gae
+        keyfile: ../credentials.json
+        project: lab-devops-cloud-315600
+        on:
+          branch: main
+
+    - stage: PROD TEST
+      script:
+        - curl https://lab-devops-cloud-315600.uc.r.appspot.com/ | grep Hello || travis_terminate 1;
+
