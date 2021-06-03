@@ -9,8 +9,10 @@ os: linux
 dist: xenial
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_45197dc6f6a9_key -iv $encrypted_45197dc6f6a9_iv
-  -in credentials.json.enc -out ../credentials.json -d
+- openssl aes-256-cbc -K $encrypted_c215e2372ab6_key -iv $encrypted_c215e2372ab6_iv
+  -in credencials.json.enc -out ../credencials.json
+  -d
+
 jobs:
   include:
     - stage: Build
@@ -39,17 +41,3 @@ jobs:
     - stage: STG TEST
       script:
         - curl https://devopslab-gilmarvagner.herokuapp.com/ | grep Hello || travis_terminate 1;
-
-    - stage: PROD Deploy
-      script: skip
-      # Definir o Deploy no Google Cloud
-      deploy:
-        provider: gae
-        keyfile: ../credentias.json
-        project: lavdevops
-        on:
-          branch: main
-     - stage: PROD TEST
-      script:
-        - curl https://devopslab-gilmarvagner.herokuapp.com/ | grep Hello || travis_terminate 1;
-      
