@@ -9,9 +9,8 @@ os: linux
 dist: xenial
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_c215e2372ab6_key -iv $encrypted_c215e2372ab6_iv
-  -in credentials.json.enc -out /vagrant/credentials.json
-  -d
+- openssl aes-256-cbc -K $encrypted_45197dc6f6a9_key -iv $encrypted_45197dc6f6a9_iv
+  -in credentials.json.enc -out ../credentials.json -d
 
 jobs:
   include:
