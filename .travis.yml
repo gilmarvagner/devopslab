@@ -10,7 +10,7 @@ dist: xenial
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_c215e2372ab6_key -iv $encrypted_c215e2372ab6_iv
-  -in credencials.json.enc -out ../credencials.json
+  -in credencials.json.enc -out /vagrant/credencials.json
   -d
 
 jobs:
