@@ -1,30 +1,9 @@
-{
-  "language": "python",
-  "os": [
-    "linux"
-  ],
-  "dist": "xenial",
-  "python": [
-    "3.7.9"
-  ],
-  "install": [
-    "pip install flask"
-  ],
-  "script": [
-    "python -m unittest -v test || travis_terminate 1;"
-  ],
-  "deploy": [
-    {
-      "provider": "heroku",
-      "strategy": "api",
-      "api_key": "$HEROKU_API_KEY",
-      "edge": true,
-      "app": "devopslab-gilmarvagner",
-      "on": {
-        "branch": [
-          "main"
-        ]
-      }
-    }
-  ]
-}
+- provider: gae
+    keyfile: ../credentials.json
+    project: DEFINIR
+    on:
+      branch: main
+before_install:
+- openssl aes-256-cbc -K $encrypted_45197dc6f6a9_key -iv $encrypted_45197dc6f6a9_iv
+  -in credentials.json.enc -out ../credentials.json -d
+
