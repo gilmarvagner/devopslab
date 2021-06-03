@@ -43,7 +43,8 @@ jobs:
     - stage: STG TEST
       script:
         - curl https://devopslab-gilmarvagner.herokuapp.com/ | grep Hello || travis_terminate 1;
- - stage: PROD Deploy
+     
+    - stage: PROD Deploy
       script: skip
       # Definir o Deploy no Google Cloud
       deploy:
