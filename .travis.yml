@@ -33,7 +33,7 @@ jobs:
         strategy: api
         api_key: $HEROKU_API_KEY
         edge: true
-        app: devopslab-gaby
+        app: devopslab-gilmarvagner
         on:
           branch: main
 
