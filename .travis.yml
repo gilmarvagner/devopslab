@@ -23,7 +23,7 @@ jobs:
   include:
     - stage: Build
       name: "Unit test"
-      # Instalação de Módulos que são necessários para a Aplicação.
+      # Instalação de Módulos que são necessários para a Aplicação Ok.
       install:
         - pip install flask flask-wtf coverage
       # Definir script de testes que irá rodar a cada commit
