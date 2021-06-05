@@ -12,6 +12,8 @@ addons:
  sonarcloud:
   organization: gilmarvagner
   token: ${SONAR_TOKEN}
+  - install:
+    - pip install flask flask-wtf
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_45197dc6f6a9_key -iv $encrypted_45197dc6f6a9_iv
