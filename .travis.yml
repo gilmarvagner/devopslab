@@ -17,6 +17,8 @@ addons:
   organization: gilmarvagner
   token: ${SONAR_TOKEN}
 
+install:                                                                                                                                                                                                                                                                                    
+  - pip install flask flask-wtf
 
 jobs:
   include:
