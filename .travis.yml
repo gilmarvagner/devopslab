@@ -12,23 +12,22 @@ addons:
  sonarcloud:
   organization: gilmarvagner
   token: ${SONAR_TOKEN}
-  - install:
-    - pip install flask flask-wtf
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_45197dc6f6a9_key -iv $encrypted_45197dc6f6a9_iv
   -in credentials.json.enc -out ../credentials.json -d
+
+
+
 jobs:
   include:
     - stage: Build
-
-      name: "Testes Unitarios"
-      # Instalação Módulos que são necessários para a Aplicação.
+      name: "Unit test"
+      # Instalação de Módulos que são necessários para a Aplicação.
       install:
         - pip install flask flask-wtf coverage
-
-      script:  # Defini o script de Teste que deve rodar toda vez que o código for alterado.
-         script:
+      # Definir script de testes que irá rodar a cada commit
+      script:
         - python -m unittest -v test || travis_terminate 1;
         - coverage run test.py || travis_terminate 1;
         - coverage report app.py || travis_terminate 1;
